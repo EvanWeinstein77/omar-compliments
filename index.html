@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thank You, Omar 🙌</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #fdf6ec;
+    --header-bg: #1a1a2e;
+    --accent1: #ff6b6b;
+    --accent2: #feca57;
+    --accent3: #48dbfb;
+    --accent4: #ff9ff3;
+    --accent5: #54a0ff;
+    --accent6: #5f27cd;
+    --card-1: #fff9c4;
+    --card-2: #ffd6d6;
+    --card-3: #d6f0ff;
+    --card-4: #e8d6ff;
+    --card-5: #d6ffe8;
+    --card-6: #ffd6f0;
+    --card-7: #ffe8d6;
+    --shadow: rgba(0,0,0,0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255,107,107,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(84,160,255,0.08) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a85a' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    font-family: 'Lora', Georgia, serif;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--header-bg);
+    background-image:
+      radial-gradient(ellipse at 30% 60%, rgba(95,39,205,0.45) 0%, transparent 55%),
+      radial-gradient(ellipse at 75% 30%, rgba(255,107,107,0.3) 0%, transparent 50%);
+    color: #fff;
+    text-align: center;
+    padding: 80px 24px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='1' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E") repeat;
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--accent2);
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    letter-spacing: 0.04em;
+    animation: fadeDown 0.7s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    animation: fadeDown 0.7s 0.1s ease both;
+  }
+
+  .hero h1 span {
+    background: linear-gradient(135deg, var(--accent2), var(--accent1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    opacity: 0.75;
+    font-style: italic;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeDown 0.7s 0.2s ease both;
+  }
+
+  .hero-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 32px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 12px 28px;
+    border-radius: 100px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    animation: fadeDown 0.7s 0.3s ease both;
+  }
+
+  .hero-count strong {
+    color: var(--accent2);
+    font-size: 1.4rem;
+  }
+
+  /* ── WAVE ── */
+  .wave {
+    display: block;
+    width: 100%;
+    height: 80px;
+    margin-bottom: -2px;
+  }
+
+  /* ── BOARD ── */
+  .board {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 48px 24px 100px;
+    columns: 4 280px;
+    column-gap: 20px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    padding: 24px 22px 20px;
+    box-shadow: 0 4px 16px var(--shadow), 0 1px 3px rgba(0,0,0,0.06);
+    position: relative;
+    transform: rotate(var(--r, 0deg));
+    transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease;
+    cursor: default;
+    opacity: 0;
+    animation: cardIn 0.5s ease forwards;
+    animation-delay: var(--delay, 0s);
+  }
+
+  .card:hover {
+    transform: rotate(0deg) translateY(-6px) scale(1.02);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.15), 0 2px 6px rgba(0,0,0,0.08);
+    z-index: 10;
+  }
+
+  /* pin */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--pin, #e74c3c);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .card-colors { background-color: var(--color); }
+
+  .card-body {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: #2c2c2c;
+    white-space: pre-line;
+  }
+
+  .card-from {
+    margin-top: 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #555;
+    font-style: italic;
+    text-align: right;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    padding-top: 10px;
+  }
+
+  .card-from::before { content: '— '; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    color: #888;
+    font-style: italic;
+    font-size: 0.88rem;
+    background: var(--header-bg);
+    color: rgba(255,255,255,0.4);
+  }
+
+  footer strong { color: var(--accent2); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes cardIn {
+    from { opacity: 0; transform: rotate(var(--r,0deg)) translateY(24px); }
+    to   { opacity: 1; transform: rotate(var(--r,0deg)) translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .board { columns: 1; padding: 32px 16px 80px; }
+    .card { transform: none !important; }
+    .card:hover { transform: translateY(-4px) scale(1.01) !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-tag">NUL Robotics &amp; Engineering · London 2025–26</div>
+  <h1>Thank You,<br/><span>Omar</span> 🙌</h1>
+  <p class="hero-sub">From everyone whose project you saved, whose question you answered, and whose day you brightened.</p>
+  <div class="hero-count"><strong>31</strong> students have something to say</div>
+</header>
+
+<svg class="wave" viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#fdf6ec"/>
+</svg>
+
+<main class="board" id="board"></main>
+
+<footer>
+  Built with love by NUL Robotics &nbsp;·&nbsp; <strong>Omar</strong>, you are irreplaceable. 🧡
+</footer>
+
+<script>
+const compliments = [
+  {
+    text: "He is just an amazing guy, super nice and always helpful, goes out of his way to make sure that we know what we are doing and he gave us a really nice pep talk before the competition. I am really going to miss him when I leave.",
+    from: "Ben"
+  },
+  {
+    text: "u da goat fr",
+    from: "Monesh"
+  },
+  {
+    text: "Omar is perhaps the most committed faculty member at NULondon. There is nobody else who is willing to constantly be sprinting around to fetch tools so that we can work on projects and use the maker space. I have nothing but the highest praise for Omar and am always elated to hear that anyone who has had an interaction with Omar is similarly enthusiastic about the light he brings to this campus. Thank you, Omar!",
+    from: null
+  },
+  {
+    text: "OMAR YOU'RE THE GOAT!!! THANK YOU for all the help you gave us throughout the year!! Couldn't have done our projects without you. Too bad you're not gonna be in Boston 😭",
+    from: "Caleb Kong"
+  },
+  {
+    text: "Most helpful, giving, and enthusiastic staff member at Northeastern London.",
+    from: "Nicolas Ochaita"
+  },
+  {
+    text: "Omar has been the best instructor and aid that I've had the pleasure of working with. He's always been more than willing to help out anyone with anything, especially with respect to the cornerstone projects. When the course instructors have been unclear and unhelpful in teaching vital skills, such as programming, electronics, and CAD, Omar has never hesitated to lend a hand. During the end of the first semester, he was in the makerspace nearly constantly, assisting in debugging the maze navigating robots. In addition to this, he's always been extremely kind and friendly to everyone, making us all feel comfortable and accepted in the lab. He's been able to help and advise me on any question or problem I've been able to think of this year, and allowed me to quickly learn and build my skills in using the makerspace tools. Overall, Omar's assistance and presence has been invaluable, and I'm greatly appreciative for all he does for us.",
+    from: "Eric"
+  },
+  {
+    text: "He's the goat 🐐",
+    from: "Jeremy"
+  },
+  {
+    text: "Thank you very much for your hard work.",
+    from: null
+  },
+  {
+    text: "Endlessly patient. Accommodating to both inexperienced students and extremely experienced ones. The GOAT.",
+    from: null
+  },
+  {
+    text: "You are truly amazing! You help all of us out so much! We all know how hard you work and yet you always have a smile on your face. You always go above and beyond to help and clearly genuinely want to see all of us succeed. We can all tell you genuinely love doing what you do and it is an inspiration to all of us, both in the engineering and in robotics communities. Thank you Omar for everything. I truly appreciate all the hard work and dedication. You will be missed when we're back in Boston. You truly are an inspiration to all of us.",
+    from: "Cameron Francini"
+  },
+  {
+    text: "Omar has been such a great help in figuring out all the things that we get left to do on our own, especially when our teachers can't. He's been nothing but supportive and always tries to figure out a way with you to make something work, before suggesting doing something else. He's always a constant figure in the lab and I can't imagine it without him. I wish him all the best and know that next year's students are in capable hands.",
+    from: null
+  },
+  {
+    text: "I'm so impressed by how you're able to make each and every student feel prepared for whatever assignment we're working on. We didn't even need to ask you to help us with our robot project — you had already made a prototype on your own just to test our ideas. You always go above and beyond to not just show us how to do something, but also why and how it works every time. You've taught me so much about wiring and coding. I genuinely don't know how I'd make it through this class without you. Thank you so much for all of your help and for making every student feel special. I'm gonna miss you in Boston.",
+    from: "Hayley"
+  },
+  {
+    text: "Omar is one of the kindest and most level headed people I have probably ever met. Throughout my first robot project I ran into multiple setbacks and without Omar there to help I probably would've spent countless hours trying to fix them. No matter how many questions or issues I came to him with he always helped with a calm and understanding manner and never made me feel stupid for asking. He'll always say hi to you in the halls and when you talk to him it feels like you're talking to a friend. I think he would make an excellent teacher if that's what he wanted to do.",
+    from: "Evan Holtman"
+  },
+  {
+    text: "Omar is a great teacher and instructor. Without him I would have been very lost in my robot project and I appreciate all the wisdom and advice he gives us all.",
+    from: "Ariana Boroditsky"
+  },
+  {
+    text: "He's the goat 🐐",
+    from: "Diego"
+  },
+  {
+    text: "Omar has been the most influential person on my academics this year. He helped me to really understand the mechanics when constructing robots and using machinery/tools. Anytime I was uncertain about something, Omar would immediately jump right in to help. I, and others have told me as well, greatly appreciate Omar and the hard work and dedication he puts into his job.",
+    from: null
+  },
+  {
+    text: "Hey Omar, I have only been in one engineering course (you might remember me as the only Business major student in engineering), but in that short time you made a lasting impression on me and the rest of my classmates. I lowkey did not take away much from that class but one thing I remember for sure is that everyone unanimously agreed you carried the entire course. From helping people with robots to sprouting fun conversations, you single-handedly prevented mass depression. Thank you for all your time and effort!",
+    from: "Andrew Chen"
+  },
+  {
+    text: "Omar is an incredible guy with an intelligence that borders on supernatural. His willingness to help students is something every good mentor should strive to have.",
+    from: null
+  },
+  {
+    text: "Thank you so much for all of your help! I don't think any of us could've made it this far if it wasn't for your kindness. I hope you know how much you mean to us — we'll never forget all of your kind actions.",
+    from: null
+  },
+  {
+    text: "Thank you so much Omar for always answering all my questions and always celebrating wins with us. You've taught us so much more than what the classes provided and brought joy into engineering.",
+    from: null
+  },
+  {
+    text: "Omar, you are always kind and helpful. I can't stand through this year without your help. It's my honor to meet you.",
+    from: "Yunheng"
+  },
+  {
+    text: `Omar,
+
+We just wanted to take a moment to say — thank you. Genuinely, from all of us.
+
+You show up every single day and make this lab what it is. Whether it's sorting out the 3D printers, helping us with the laser cutters, tracking down electronic parts, or just being there when we're stuck and stressed — you never make us feel like we're a burden. And that means more than you know.
+
+For our Robotics Club especially, you've been a huge part of our journey. We could not have done what we did without your help, your patience, and your belief in us.
+
+You go so far beyond what's expected of you, and we see it. We appreciate it. And we really hope you know how much of a difference you make — not just to our projects, but to us as students.
+
+Thank you for everything, Omar. :)`,
+    from: "Ruchika"
+  },
+  {
+    text: "Omar truly saved me this year. I came in with no robotics or coding knowledge and he helped me build the robot and complete the project on time while still teaching me how it all works — to the point that by the 3rd time I had to rewire my robot, I could almost do it myself. He answered all of my stupid questions with a smile even though he was single-handedly teaching like 200 kids how to build a robot from scratch. He is genuinely an incredible teacher and absolutely deserves the world.",
+    from: "Catherine Lawrence"
+  },
+  {
+    text: "Honestly, I only have positives to share about Omar. He has probably been the most helpful and influential figure within Northeastern London over the year I've spent here. He stayed after his working hours to ensure he could help me complete my projects in time and has always given me time and advice when I needed it. He really is a role model for my future and I couldn't be more grateful. Thank you so much, Omar.",
+    from: "Andrea Guida"
+  },
+  {
+    text: "You're the GOAT — best engineering teacher and always helpful. We'll miss you.",
+    from: null
+  },
+  {
+    text: "Omar has been a big help, not only in terms of teaching, but also being a big supporter and encourager! He's very approachable and believes in us more than we do sometimes. I remember learning to solder and use the 3D printer for the first time, and he was happy to share a lot of his tips and tricks. Truly thank you for all your help Omar — definitely couldn't have done a lot of the engineering and robotics work without your expertise, time, and patience!",
+    from: "Shreya"
+  },
+  {
+    text: "I don't know if you remember this at all but you actually introduced me to Evan all the way back in the first week of school, encouraging us to start a Robotics club. I've met so many people and have learnt so much about robotics since then because of it, so thank you for that, and thank you for all your support in helping us. :))",
+    from: "Lou"
+  },
+  {
+    text: "Omar has been the most helpful person I've come across in the engineering department and he never hesitates to jump in and help a student. He's single-handedly made my experiences in engineering more fun and enjoyable. Thank you for everything, Omar.",
+    from: "Yuvi A."
+  },
+  {
+    text: "Your help this past year has sparked a genuine interest in engineering for me. I came in unsure of what I was going to major in and have really grown to enjoy mechanical engineering and being in the lab. I greatly appreciate how you take time for every student regardless of how much you are doing — thank you so so much!!",
+    from: "Kendall"
+  },
+  {
+    text: "Omar isn't just there to help us — he's also there to teach us the virtues of patience, collaboration, kindness, and ingenuity. With a smile on his face and a constant willingness to listen to your individual ideas, he has single-handedly made our experience at the London campus unforgettable. Success isn't determined based on how quickly one achieves it, but how one eventually comes about it. Omar has inspired us to believe in the little experience some of us have and to develop it further. Grazie mille Omar!",
+    from: "Federico Mari"
+  },
+  {
+    text: "Omar has been a huge help in both projects throughout the year. He is always motivated to help and loves to talk you through problems and discuss potential solutions. He gives you complete freedom over your projects but seems equally invested in them as we are. Always the first to congratulate you when you succeed and the first to pick you up when something doesn't work. He has made a massive impact on my education and I am forever grateful for his hard work and dedication.",
+    from: "Justin"
+  }
+];
+
+const colors = [
+  { bg: '#fff9c4', pin: '#f9ca24' },
+  { bg: '#ffd6d6', pin: '#ff6b6b' },
+  { bg: '#d6f0ff', pin: '#54a0ff' },
+  { bg: '#e8d6ff', pin: '#a29bfe' },
+  { bg: '#d6ffe8', pin: '#00b894' },
+  { bg: '#ffd6f0', pin: '#fd79a8' },
+  { bg: '#ffe8d6', pin: '#e17055' },
+];
+
+const rotations = [-1.5, -0.8, 0, 0.6, 1.2, -0.4, 1.8, -1.2, 0.3, -1.8];
+
+const board = document.getElementById('board');
+
+compliments.forEach((c, i) => {
+  const col = colors[i % colors.length];
+  const rot = rotations[i % rotations.length];
+  const delay = (i * 0.06).toFixed(2);
+
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.style.setProperty('--r', `${rot}deg`);
+  card.style.setProperty('--color', col.bg);
+  card.style.setProperty('--pin', col.pin);
+  card.style.setProperty('--delay', `${delay}s`);
+  card.style.backgroundColor = col.bg;
+
+  const body = document.createElement('p');
+  body.className = 'card-body';
+  body.textContent = c.text;
+  card.appendChild(body);
+
+  if (c.from) {
+    const from = document.createElement('div');
+    from.className = 'card-from';
+    from.textContent = c.from;
+    card.appendChild(from);
+  }
+
+  board.appendChild(card);
+});
+</script>
+</body>
+</html>
